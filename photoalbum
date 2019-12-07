@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+
+<body style="background-color:Brown;">
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: green;
+}
+
+/* Caption text */
+.text {
+  color: brown;
+  font-size: 30px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+.prev:hover, .text:hover {
+  background-color: green;
+}
+
+/* Number text (1/4 etc) */
+.numbertext {
+  color: brown;
+  font-size: 20px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+</style>
+</head>
+<body>
+
+<div class="slideshow-container">
+
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 26</div>
+  <img src="1.jpg" style="width:100%">
+  <div class="text">Last Christmas with Mary and Rebecca</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 26</div>
+  <img src="2.jpg" style="width:100%">
+  <div class="text">The new Mount Angel Abbey brewery</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 26</div>
+  <img src="3.jpg" style="width:100%">
+  <div class="text">Starting the new year in Huilo Huilo</div>
+</div>
+ 
+<div class="mySlides fade">
+  <div class="numbertext">4 / 25</div>
+  <img src="4.jpg" style="width:100%">
+  <div class="text">Draw your own conclusion</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">5 / 26</div>
+  <img src="5a.jpg" style="width:100%">
+  <div class="text">Alec and Kevin come to Chile for a visit</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">5 / 26</div>
+  <img src="5.jpg" style="width:100%">
+  <div class="text">Auntie Rachel loves her nephew Alec</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">6 / 26</div>
+  <img src="6.jpg" style="width:100%">
+  <div class="text">We visited the penguins on Chiloe island</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">7 / 26</div>
+  <img src="7.jpg" style="width:100%">
+  <div class="text">Boating to the penguins</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">8 / 26</div>
+  <img src="8.jpg" style="width:100%">
+  <div class="text">Puerto Saavedra - about an hour west from our house</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">9 / 26</div>
+  <img src="9.jpg" style="width:100%">
+  <div class="text">River tour near Valdivia</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">10 / 26</div>
+  <img src="10.jpg" style="width:100%">
+  <div class="text">Hungry sea life in Valdivia</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">11 / 26</div>
+  <img src="11.jpg" style="width:100%">
+  <div class="text">Feeling homesick for Austria</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">12 / 26</div>
+  <img src="12.jpg" style="width:100%">
+  <div class="text">Villarrica - about an hour east of our house</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">13 / 26</div>
+  <img src="13.jpg" style="width:100%">
+  <div class="text">Rachel's favorite bird - the Bandurria!</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">14 / 26</div>
+  <img src="14.jpg" style="width:100%">
+  <div class="text">Saltos del Laja - about an hour north of our house</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">15 / 26</div>
+  <img src="15.jpg" style="width:100%">
+  <div class="text">Hiking in Villarrica park</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">16 / 26</div>
+  <img src="16.jpg" style="width:100%">
+  <div class="text">Near Huife</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">17 / 26</div>
+  <img src="17.jpg" style="width:100%">
+  <div class="text">Thermal springs in the mountains</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">18 / 26</div>
+  <img src="18.jpg" style="width:100%">
+  <div class="text">Back in the US in July with Brad's mom & dad</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">19 / 26</div>
+  <img src="19.jpg" style="width:100%">
+  <div class="text">Quality time in Superior for Brad's 30 year high school reunion</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">20 / 26</div>
+  <img src="20.jpg" style="width:100%">
+  <div class="text">A quick trip to Costa Rica for teaching and some time with monkeys</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">21 / 26</div>
+  <img src="21.jpg" style="width:100%">
+  <div class="text">Rachel's favorite animal in Costa Rica: the sloth!</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">22 / 26</div>
+  <img src="22.jpg" style="width:100%">
+  <div class="text">Back in the mountains of Chile and interesting birds</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">23 / 26</div>
+  <img src="23.jpg" style="width:100%">
+  <div class="text">Plenty of nice waterfalls in Chile</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">24 / 26</div>
+  <img src="24.jpg" style="width:100%">
+  <div class="text">And inquisitive birds</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">25 / 26</div>
+  <img src="25.jpg" style="width:100%">
+  <div class="text">Brad's Chilean birthday party</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">26 / 26</div>
+  <img src="26.jpg" style="width:100%">
+  <div class="text">Halloween hiking in Altos de Lircay, near Talca</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">26 / 26</div>
+  <img src="27.jpg" style="width:100%">
+  <div class="text">December hiking in Conguillío National Park</div>
+</div>
+
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span> 
+  <span class="dot" onclick="currentSlide(6)"></span> 
+  <span class="dot" onclick="currentSlide(7)"></span> 
+  <span class="dot" onclick="currentSlide(8)"></span>
+  <span class="dot" onclick="currentSlide(9)"></span> 
+  <span class="dot" onclick="currentSlide(10)"></span> 
+  <span class="dot" onclick="currentSlide(11)"></span> 
+  <span class="dot" onclick="currentSlide(12)"></span>  
+  <span class="dot" onclick="currentSlide(13)"></span> 
+  <span class="dot" onclick="currentSlide(14)"></span> 
+  <span class="dot" onclick="currentSlide(15)"></span>
+  <span class="dot" onclick="currentSlide(16)"></span> 
+  <span class="dot" onclick="currentSlide(17)"></span> 
+  <span class="dot" onclick="currentSlide(18)"></span> 
+  <span class="dot" onclick="currentSlide(19)"></span>
+  <span class="dot" onclick="currentSlide(20)"></span> 
+  <span class="dot" onclick="currentSlide(21)"></span> 
+  <span class="dot" onclick="currentSlide(22)"></span> 
+  <span class="dot" onclick="currentSlide(23)"></span>
+  <span class="dot" onclick="currentSlide(24)"></span> 
+  <span class="dot" onclick="currentSlide(25)"></span> 
+  <span class="dot" onclick="currentSlide(26)"></span> 
+  <span class="dot" onclick="currentSlide(27)"></span> 
+  <span class="dot" onclick="currentSlide(28)"></span>
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+</body>
+</html> 
+
