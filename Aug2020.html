@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Template</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+  background-color: Lightblue;
+  padding: 20px;
+  text-align: center;
+  font-size:45px;
+  color: black;
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 30%;
+  height: 800px; /* Change this number to alter height of color boxes */
+  background: Orange;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 70%;
+  background-color: Linen;
+  height: 800px; /* only for demonstration, should be removed */
+}
+
+/* Clear floats after the columns */
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/* Style the footer */
+footer {
+  background-color: Lightblue;
+  padding: 50px;
+  text-align: center;
+  color: black;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+</style>
+</head>
+<body>
+
+
+
+<header>
+  <h2>Are we done yet?</h2>
+
+</header>
+
+<section>
+  <nav>
+    <ul>
+<h1>Music for shut-ins: August 2020 Sampler</h1>
+
+<img src="CaliforniaCapture.png" alt="California" width="270" height="270">
+
+<audio controls="controls">
+    <source src="https://docs.google.com/uc?export=download&id=186Nod6Cc5NQ57V7up1XBcFzzisGBLb3a">
+
+Your browser does not support the audio element.
+
+</audio>
+
+<p></p>
+<p></p>
+<p></p>
+
+<p></p>
+
+<a href="ChristmasArchive2019.html"> <img src="GhostPast.png" width="270" height="270">
+<p></p>
+
+<li><a href="ChristmasArchive2019.html"><li>
+    The ghost of Christmas past
+</a>
+
+<p></p>
+<p></p>
+
+    </ul>
+  </nav>
+  
+  <article>
+    <h1>People of Earth,</h1>
+    <p>If you are reading this, I guess that is something. We spent the first 5 months of the "new times" in Chile and then thought, "Wouldn't it be fun to try to move to a different continent with two cats during a global pandemic?"  The answer is: "No, it is no fun at all."  But we did it and are now holed up in California at Rachel's sister's place, which sits in the beautiful countryside outside of Sacramento.  We find ourselves doing much the same thing as we did in the Southern Hemisphere: staring at computer screens. But at least it is sunny outside.  Brad will start a new job on August 3rd and Rachel will start her new job shortly thereafter.  We will both be working at UC Davis.  Until then we have free time find a place to live and a car to drive. We thought you might like some music to pass the time.  </p>
+    <p>
+</p>
+ <p>Here's wishing everyone health and happiness!
+</p>
+ <p>    Brad & Rachel 
+</p>
+
+
+  </article>
+</section>
+<footer>
+
+  <p>nope</p>
+
+</footer>
+</body>
+</html>
