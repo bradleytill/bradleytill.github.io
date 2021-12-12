@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+
+<body style="background-color:firebrick;">
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: #76A08A;
+}
+
+/* Caption text */
+.text {
+  color: brown;
+  font-size: 30px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+.prev:hover, .text:hover {
+  background-color: #76A08A;
+}
+
+/* Number text (1/4 etc) */
+.numbertext {
+  color: brown;
+  font-size: 20px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+</style>
+</head>
+<body>
+
+<div class="slideshow-container">
+
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 30</div>
+  <img src="2021a1.jpg" style="width:100%">
+  <div class="text">Outdoor goulash in the foothils of the Sierra Nevadas </div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 30</div>
+  <img src="2021a1a.jpg" style="width:100%">
+  <div class="text">Rachel's sister Shelly, husband Tom, and neighbor Ellen with dogs near Omo Ranch</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 30</div>
+  <img src="2021a2.jpg" style="width:100%">
+  <div class="text">Rachel gives a horse a carrot</div>
+</div>
+ 
+<div class="mySlides fade">
+  <div class="numbertext">4 / 25</div>
+  <img src="2021a3.jpg" style="width:100%">
+  <div class="text">Bird watching in the marshes outside of Sacramento</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">5 / 30</div>
+  <img src="2021b.jpg" style="width:100%">
+  <div class="text">With so many sunny days we needed a proper grill</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">5 / 30</div>
+  <img src="2021c.jpg" style="width:100%">
+  <div class="text">Rachel did a lot of work spiffing up the garden this year</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">6 / 30</div>
+  <img src="2021c1.jpg" style="width:100%">
+  <div class="text">Camping in May</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">7 / 30</div>
+  <img src="2021c2.jpg" style="width:100%">
+  <div class="text">Rachel and her sister Shelly at Indian Grinding Rock State Park</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">8 / 30</div>
+  <img src="2021c3.jpg" style="width:100%">
+  <div class="text">Stinson Beach Golden Gate National Recreation Area</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">9 / 30</div>
+  <img src="2021d.jpg" style="width:100%">
+  <div class="text">Got fully vaccinated and headed to Wisconsin to visit Brad's family</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">10 / 30</div>
+  <img src="2021e.jpg" style="width:100%">
+  <div class="text">Catching up with friends (Irvin and Chris) at a Duluth Huskies baseball game.  Watch out for flying bats!</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">11 / 30</div>
+  <img src="2021f.jpg" style="width:100%">
+  <div class="text">Brad's aunt and uncle Julie and Craig drove to Wisconsin for a visit</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">12 / 30</div>
+  <img src="2021g.jpg" style="width:100%">
+  <div class="text">Think Wisconsin isn't full of wonders?  Meet "Magnum, P.I.G."</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">13 / 30</div>
+  <img src="2021h.jpg" style="width:100%">
+  <div class="text">Brad at work. Horses are much larger than cats</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">14 / 30</div>
+  <img src="2021i.jpg" style="width:100%">
+  <div class="text">A short trip to Clear Lake in July. With all the drought it was neither clear nor much of a lake</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">15 / 30</div>
+  <img src="2021k.jpg" style="width:100%">
+  <div class="text">Early August wine tasting in Anderson valley</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">16 / 30</div>
+  <img src="2021l.jpg" style="width:100%">
+  <div class="text">Camping in the redwoods</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">17 / 30</div>
+  <img src="2021la.jpg" style="width:100%">
+  <div class="text">Brad gestures to a large tree</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">18 / 30</div>
+  <img src="2021m.jpg" style="width:100%">
+  <div class="text">Onward to Mendocino and camping on the beach</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">19 / 30</div>
+  <img src="2021n.jpg" style="width:100%">
+  <div class="text">Kite flying on the coast; what could be better?</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">20 / 30</div>
+  <img src="2021o.jpg" style="width:100%">
+  <div class="text">The seals are jealous of our kite</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">21 / 30</div>
+  <img src="2021p.jpg" style="width:100%">
+  <div class="text">We definitely want to return to our beach camping spot</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">22 / 30</div>
+  <img src="2021pa.jpg" style="width:100%">
+  <div class="text">To celebrate Brad's birthday we headed down to Encinitas to visit our friends Joan and Jacob</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">23 / 30</div>
+  <img src="2021qa.jpg" style="width:100%">
+  <div class="text">Lots of good friends from our Oregon and Seattle days living in the San Diego area!</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">24 / 30</div>
+  <img src="2021r.jpg" style="width:100%">
+  <div class="text">All dressed up for the beautiful wedding of Tracia and Isabelle this October.</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">25 / 30</div>
+  <img src="2021s.jpg" style="width:100%">
+  <div class="text">Friends Ivin and Jessica visit from Wisconsin to see some jazz and get some sweet California rain</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">26 / 30</div>
+  <img src="2021t.jpg" style="width:100%">
+  <div class="text">Had to say goodbye to our cat Xena this autumn. She was great and we miss her.</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">27 / 30</div>
+  <img src="2021u.jpg" style="width:100%">
+  <div class="text">That dinosaur is giving us the stink eye</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">28 / 30</div>
+  <img src="2021v.jpg" style="width:100%">
+  <div class="text">And this dinosaur thinks Rachel is an appetizer</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">29 / 30</div>
+  <img src="2021x.jpg" style="width:100%">
+  <div class="text">Went to lots of concerts and theater this year. Here we are at the historic Woodland Opera House</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">30 / 30</div>
+  <img src="2021y.jpg" style="width:100%">
+  <div class="text">The wild turkeys on the UC Davis campus get suspicious this time of year</div>
+</div>
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span> 
+  <span class="dot" onclick="currentSlide(6)"></span> 
+  <span class="dot" onclick="currentSlide(7)"></span> 
+  <span class="dot" onclick="currentSlide(8)"></span>
+  <span class="dot" onclick="currentSlide(9)"></span> 
+  <span class="dot" onclick="currentSlide(10)"></span> 
+  <span class="dot" onclick="currentSlide(11)"></span> 
+  <span class="dot" onclick="currentSlide(12)"></span>  
+  <span class="dot" onclick="currentSlide(13)"></span> 
+  <span class="dot" onclick="currentSlide(14)"></span> 
+  <span class="dot" onclick="currentSlide(15)"></span>
+  <span class="dot" onclick="currentSlide(16)"></span> 
+  <span class="dot" onclick="currentSlide(17)"></span> 
+  <span class="dot" onclick="currentSlide(18)"></span> 
+  <span class="dot" onclick="currentSlide(19)"></span>
+  <span class="dot" onclick="currentSlide(20)"></span> 
+  <span class="dot" onclick="currentSlide(21)"></span> 
+  <span class="dot" onclick="currentSlide(22)"></span> 
+  <span class="dot" onclick="currentSlide(23)"></span>
+  <span class="dot" onclick="currentSlide(24)"></span> 
+  <span class="dot" onclick="currentSlide(25)"></span> 
+  <span class="dot" onclick="currentSlide(26)"></span> 
+  <span class="dot" onclick="currentSlide(27)"></span> 
+  <span class="dot" onclick="currentSlide(28)"></span>
+  <span class="dot" onclick="currentSlide(29)"></span>
+  <span class="dot" onclick="currentSlide(30)"></span>
+  <span class="dot" onclick="currentSlide(31)"></span>
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+</body>
+</html> 
+
