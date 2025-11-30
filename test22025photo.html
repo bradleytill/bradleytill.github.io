@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2024 Photos</title>
+    <link rel="icon" type="image/x-icon" href="chr24.jpg">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #76A08A;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .album-container {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .slide {
+            display: none;
+            position: relative;
+            width: 100%;
+            min-height: 300px;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide-image-container {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #2a2a2a;
+            min-height: 400px;
+        }
+
+        .slide img {
+            max-width: 100%;
+            max-height: 80vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .slide-caption {
+            background-color: rgba(53, 131, 109, 0.95);
+            color: #e7d49e;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* Navigation Arrows */
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(53, 131, 109, 0.7);
+            color: white;
+            border: none;
+            font-size: 30px;
+            padding: 20px 15px;
+            cursor: pointer;
+            z-index: 10;
+            transition: background-color 0.3s ease;
+            user-select: none;
+        }
+
+        .nav-arrow:hover {
+            background-color: rgba(53, 131, 109, 0.95);
+        }
+
+        .nav-arrow:active {
+            background-color: rgba(35, 90, 75, 1);
+        }
+
+        .prev-arrow {
+            left: 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .next-arrow {
+            right: 0;
+            border-radius: 4px 0 0 4px;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            padding: 10px;
+        }
+
+        .page-btn {
+            min-width: 40px;
+            height: 40px;
+            padding: 0 12px;
+            background-color: rgba(255, 255, 255, 0.3);
+            color: #2a2a2a;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page-btn:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .page-btn.active {
+            background-color: #2a2a2a;
+            color: #e7d49e;
+            border-color: #2a2a2a;
+        }
+
+        .page-btn.ellipsis {
+            pointer-events: none;
+            border: none;
+            background: transparent;
+        }
+
+        .page-nav-arrow {
+            font-size: 16px;
+        }
+
+        /* Mobile Optimizations */
+        @media only screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .slideshow-container {
+                margin-bottom: 20px;
+                border-radius: 4px;
+            }
+
+            .slide-image-container {
+                min-height: 300px;
+            }
+
+            .slide img {
+                max-height: 60vh;
+            }
+
+            .slide-caption {
+                padding: 15px;
+                font-size: 16px;
+            }
+
+            .nav-arrow {
+                font-size: 24px;
+                padding: 15px 10px;
+            }
+
+            .page-btn {
+                min-width: 36px;
+                height: 36px;
+                font-size: 13px;
+                gap: 6px;
+            }
+
+            .pagination {
+                gap: 6px;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .slide-caption {
+                font-size: 14px;
+                padding: 12px;
+            }
+
+            .page-btn {
+                min-width: 32px;
+                height: 32px;
+                font-size: 12px;
+                padding: 0 8px;
+            }
+        }
+
+        /* Touch feedback */
+        .slideshow-container {
+            touch-action: pan-y;
+        }
+    </style>
+</head>
+<body>
+    <div class="album-container">
+        <div class="slideshow-container" id="slideshowContainer">
+            <!-- Slide 1 -->
+            <div class="slide active">
+                <div class="slide-image-container">
+                    <img src="22_2025.jpeg" alt="Halloween fun">
+                </div>
+                <div class="slide-caption">Halloween hyjinks from David S. Pumpkins.  Any questions?.</div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="23_2025.jpeg" alt="Rocky Horror">
+                </div>
+                <div class="slide-caption">Going to a live performance of Rocky Horror just before halloween!</div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="24_2025.jpg" alt="Portland visit">
+                </div>
+                <div class="slide-caption">Rachel put some photos of Rebecca and Mary at the ofrenda during the Calcetinas concert in October.</div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="2024d.jpg" alt="Puget Sound Seattle">
+                </div>
+                <div class="slide-caption">On Puget Sound in Seattle in April. A rare photo where Brad isn't covered in paint.</div>
+            </div>
+
+            <!-- Slide 5 -->
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="2024e.jpg" alt="Triplets of Belleville">
+                </div>
+                <div class="slide-caption">Rachel's sister came for a visit and we went to see a screening of the Triplets of Belleville with a live orchestra conducted by the composer who wrote the original soundtrack.</div>
+            </div>
+
+            <!-- Slide 6 -->
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="2024f.jpg" alt="Gabby the cat">
+                </div>
+                <div class="slide-caption">Goodbye Gabby, you were a great cat.</div>
+            </div>
+
+            <!-- Slide 7 -->
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="2024g.jpg" alt="John Davenport">
+                </div>
+                <div class="slide-caption">Great to catch up with John Davenport this summer.</div>
+            </div>
+
+            <!-- Slide 8 -->
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="2024h.jpg" alt="Trinity Lake camping">
+                </div>
+                <div class="slide-caption">Camping in June with Jessica, Janis, and his sisters up in Trinity lake. Great paddle boarding!</div>
+            </div>
+
+            <!-- Slide 9 -->
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="2024i.jpg" alt="Santa Cruz anniversary">
+                </div>
+                <div class="slide-caption">Part 1 of our 25th wedding anniversary celebration was to go to Santa Cruz. Thanks to Mike and Heather for their hospitality.</div>
+            </div>
+
+            <!-- Slide 10 -->
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="2024j.jpg" alt="Concert legends">
+                </div>
+                <div class="slide-caption">Yes, August is hot in California. No, we were not going to let that keep us from seeing Willie Nelson, Bob Dylan and John Cougar. Legends.</div>
+            </div>
+
+            <!-- Slide 11 -->
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="2024k.jpg" alt="August concerts">
+                </div>
+                <div class="slide-caption">We were busy in August. Got to see another legend, Lucinda Williams with our pal KC. At the end of the month we saw Anders Osborne. Epic month!</div>
+            </div>
+
+            <!-- Slide 12 -->
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="2024l.jpg" alt="Brad's birthday">
+                </div>
+                <div class="slide-caption">August was not over. For Brad's birthday we hiked, paddle boarded and went to an A's game at the Oakland Coliseum.</div>
+            </div>
+
+            <!-- Slide 13 -->
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="2024m.jpg" alt="Bogota cable car">
+                </div>
+                <div class="slide-caption">In September we went to Colombia to visit our friends Carolina, Erich and their daughter Sophia. Here's us with Erich in a cable car to get a good view of Bogota.</div>
+            </div>
+
+            <!-- Slide 14 -->
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="2024n.jpg" alt="Monserrate">
+                </div>
+                <div class="slide-caption">And here we are at Monserrate with a nice view of the city.</div>
+            </div>
+
+            <!-- Slide 15 -->
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="2024o.jpg" alt="Plaza de Bolivar">
+                </div>
+                <div class="slide-caption">Downtown Bogota at the Plaza de Bolivar.</div>
+            </div>
+
+            <!-- Slide 16 -->
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="2024oo.jpg" alt="Museum of Gold">
+                </div>
+                <div class="slide-caption">The museum of gold in Bogota is truly spectacular...and shiny.</div>
+            </div>
+
+            <!-- Slide 17 -->
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="2024p.jpg" alt="Sesquile village">
+                </div>
+                <div class="slide-caption">Stopped in the village of Sesquile on our way to search for El Dorado.</div>
+            </div>
+
+            <!-- Slide 18 -->
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="2024q.jpg" alt="Guatavita">
+                </div>
+                <div class="slide-caption">At Guatavita in search of the lost city of gold.</div>
+            </div>
+
+            <!-- Slide 19 -->
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="2024r.jpg" alt="Colombian flora and fauna">
+                </div>
+                <div class="slide-caption">Loads of beautiful flora and fauna in Colombia.</div>
+            </div>
+
+            <!-- Slide 20 -->
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="2024s.jpg" alt="Guatavita town">
+                </div>
+                <div class="slide-caption">Posing in the lovely town of Guatavita.</div>
+            </div>
+
+            <!-- Slide 21 -->
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="2024t.jpg" alt="Restaurant Andres">
+                </div>
+                <div class="slide-caption">Outside Bogota in the city of Chia at the famous restaurant Andres. Brad had a spectacular "Lomo al Trapo" (beef loin covered in salt and rosemary, wrapped in damp cloth and cooked in a bed of hot coals). The restaurant is a spectacle of tchotchkes.</div>
+            </div>
+
+            <!-- Slide 22 -->
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="2024u.jpg" alt="Salt Cathedral climbing">
+                </div>
+                <div class="slide-caption">Went to the (very cool) Salt Cathedral near Zipaquira, and while there Rachel tried her hand (and feet) at climbing. No surprise, she was good at it!</div>
+            </div>
+
+            <!-- Slide 23 -->
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="2024v.jpg" alt="Bogota cafe">
+                </div>
+                <div class="slide-caption">Bogota was full of trendy hip cafes with incredible coffee. This one was a bit touristy, but the roaster agreed to sell Brad some green unroasted coffee beans.</div>
+            </div>
+
+            <!-- Slide 24 -->
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="2024w.jpg" alt="Amazon region">
+                </div>
+                <div class="slide-caption">We went down to the Amazon with Carolina, Erich and Sophia. It is a tiny sliver of Colombia between Peru and Brazil.</div>
+            </div>
+
+            <!-- Slide 25 -->
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="2024x.jpg" alt="Walk to Brazil">
+                </div>
+                <div class="slide-caption">We decided it would be fun to walk to Brazil!</div>
+            </div>
+
+            <!-- Slide 26 -->
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="2024y.jpg" alt="Amazon boat">
+                </div>
+                <div class="slide-caption">We took a boat down the Amazon to reach our secluded biohotel.</div>
+            </div>
+
+            <!-- Slide 27 -->
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="2024z.jpg" alt="River dolphins">
+                </div>
+                <div class="slide-caption">One of the amazing things about the Amazon was being able to see river dolphins.</div>
+            </div>
+
+            <!-- Slide 28 -->
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="2024zz.jpg" alt="Monkey island">
+                </div>
+                <div class="slide-caption">We also went to a place called monkey island. No idea why they called it that.</div>
+            </div>
+
+            <!-- Slide 29 -->
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="2024zzz.jpg" alt="Sammy the cat">
+                </div>
+                <div class="slide-caption">We got our new cat Sammy when we got back from Colombia. He has made himself right at home.</div>
+            </div>
+
+            <!-- Slide 30 -->
+            <div class="slide">
+                <div class="slide-image-container">
+                    <img src="2024zzzz.jpg" alt="Happy New Year">
+                </div>
+                <div class="slide-caption">With Janis and David. Wishing you all a happy new year!!</div>
+            </div>
+
+            <!-- Navigation Arrows -->
+            <button class="nav-arrow prev-arrow" onclick="changeSlide(-1)" aria-label="Previous slide">&#10094;</button>
+            <button class="nav-arrow next-arrow" onclick="changeSlide(1)" aria-label="Next slide">&#10095;</button>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" id="pagination"></div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        // Initialize
+        showSlide(currentSlide);
+        renderPagination();
+
+        function showSlide(index) {
+            // Wrap around
+            if (index >= totalSlides) {
+                currentSlide = 0;
+            } else if (index < 0) {
+                currentSlide = totalSlides - 1;
+            } else {
+                currentSlide = index;
+            }
+
+            // Update slides
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === currentSlide);
+            });
+
+            // Update pagination
+            updatePagination();
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+
+        function goToSlide(index) {
+            showSlide(index);
+        }
+
+        function renderPagination() {
+            const pagination = document.getElementById('pagination');
+            const maxVisible = 7; // Maximum number of page buttons to show
+            
+            function updatePaginationButtons() {
+                pagination.innerHTML = '';
+
+                // Previous button
+                const prevBtn = document.createElement('button');
+                prevBtn.className = 'page-btn page-nav-arrow';
+                prevBtn.innerHTML = '‹';
+                prevBtn.onclick = () => changeSlide(-1);
+                prevBtn.disabled = currentSlide === 0;
+                pagination.appendChild(prevBtn);
+
+                // Calculate which page numbers to show
+                let startPage = Math.max(0, currentSlide - 2);
+                let endPage = Math.min(totalSlides - 1, currentSlide + 2);
+
+                // Adjust if near the start or end
+                if (currentSlide < 3) {
+                    endPage = Math.min(totalSlides - 1, maxVisible - 2);
+                }
+                if (currentSlide > totalSlides - 4) {
+                    startPage = Math.max(0, totalSlides - (maxVisible - 1));
+                }
+
+                // First page
+                if (startPage > 0) {
+                    const btn = document.createElement('button');
+                    btn.className = 'page-btn';
+                    btn.textContent = '1';
+                    btn.onclick = () => goToSlide(0);
+                    pagination.appendChild(btn);
+
+                    if (startPage > 1) {
+                        const ellipsis = document.createElement('button');
+                        ellipsis.className = 'page-btn ellipsis';
+                        ellipsis.textContent = '...';
+                        pagination.appendChild(ellipsis);
+                    }
+                }
+
+                // Middle pages
+                for (let i = startPage; i <= endPage; i++) {
+                    const btn = document.createElement('button');
+                    btn.className = 'page-btn';
+                    if (i === currentSlide) {
+                        btn.classList.add('active');
+                    }
+                    btn.textContent = i + 1;
+                    btn.onclick = () => goToSlide(i);
+                    pagination.appendChild(btn);
+                }
+
+                // Last page
+                if (endPage < totalSlides - 1) {
+                    if (endPage < totalSlides - 2) {
+                        const ellipsis = document.createElement('button');
+                        ellipsis.className = 'page-btn ellipsis';
+                        ellipsis.textContent = '...';
+                        pagination.appendChild(ellipsis);
+                    }
+
+                    const btn = document.createElement('button');
+                    btn.className = 'page-btn';
+                    btn.textContent = totalSlides;
+                    btn.onclick = () => goToSlide(totalSlides - 1);
+                    pagination.appendChild(btn);
+                }
+
+                // Next button
+                const nextBtn = document.createElement('button');
+                nextBtn.className = 'page-btn page-nav-arrow';
+                nextBtn.innerHTML = '›';
+                nextBtn.onclick = () => changeSlide(1);
+                nextBtn.disabled = currentSlide === totalSlides - 1;
+                pagination.appendChild(nextBtn);
+            }
+
+            updatePaginationButtons();
+        }
+
+        function updatePagination() {
+            renderPagination();
+        }
+
+        // Touch swipe support
+        const container = document.getElementById('slideshowContainer');
+
+        container.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        container.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe left - next slide
+                    changeSlide(1);
+                } else {
+                    // Swipe right - previous slide
+                    changeSlide(-1);
+                }
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeSlide(1);
+            }
+        });
+    </script>
+</body>
+</html>
