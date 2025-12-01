@@ -1,180 +1,548 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>CHRISTMAS</title>
-<link rel="icon" type="image/x-icon" href="chr24.jpg">
+<title>CHRISTMAS 2025</title>
+<link rel="icon" type="image/x-icon" href="chr25light.jpg">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  background-color: #721d1d;
 }
 
-/* Style the header */
+/* Animated header with snow */
 header {
-  background-color: #35836d;
+  background: #4e5c45;
   padding: 30px;
   text-align: center;
   font-size: 35px;
-  color: black;
+  color: #721d1d;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  z-index: 100;
+  transition: background 0.1s linear;
 }
 
-/* Create two columns/boxes that floats next to each other */
+header h2 {
+  position: relative;
+  z-index: 2;
+  color: #721d1d;
+  font-size: 150%;
+  animation: fadeInScale 1.5s ease-out;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(2);
+  }
+}
+
+/* Snow animation */
+.snowflake {
+  position: absolute;
+  top: -10px;
+  color: white;
+  font-size: 1em;
+  opacity: 0.8;
+  animation: fall linear infinite;
+  z-index: 1;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Main content wrapper */
+.content-wrapper {
+  display: flex;
+  min-height: calc(100vh - 200px);
+  margin-top: 140px; /* Account for fixed header */
+}
+
+/* Sticky navigation panel */
 nav {
-  float: left;
   width: 25%;
-  height: 1600px; /* Change this number to alter height of color boxes */
-  background: #ce6700;
+  background: #721d1d;
   padding: 20px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
-/* Style the list inside the menu */
+nav::-webkit-scrollbar {
+  width: 8px;
+}
+
+nav::-webkit-scrollbar-thumb {
+  background: #a4b19c;
+  border-radius: 4px;
+}
+
 nav ul {
   list-style-type: none;
   padding: 0;
 }
 
+nav h1 {
+  font-size: 1.3em;
+  margin-bottom: 15px;
+  color: #721d1d;
+}
+
+nav img {
+  max-width: 100%;
+  height: auto;
+  margin: 10px 0;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+nav img:hover {
+  transform: scale(1.05);
+}
+
+nav audio {
+  width: 100%;
+  margin: 15px 0;
+}
+
+nav a {
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+nav a:hover {
+  opacity: 0.8;
+}
+
+nav li {
+  margin: 10px 0;
+}
+
+nav p {
+  margin: 10px 0;
+}
+
+/* Article with parallax backgrounds */
 article {
-  float: left;
-  padding: 20px;
   width: 75%;
+  padding: 40px;
   background-color: #a4b19c;
-  height: 1600px; /* only for demonstration, should be removed */
+  position: relative;
+  overflow: hidden;
 }
 
-/* Clear floats after the columns */
-section:after {
-  content: "";
-  display: table;
-  clear: both;
+/* Parallax background layers */
+.parallax-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.parallax-layer {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  opacity: 0.2;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+}
+
+.layer1 {
+  background-image: url('RM1_2025.jpg'); /* Replace with your beach photo filename */
+  top: 10%;
+  right: 5%;
+}
+
+.layer2 {
+  background-image: url('02B_2025.jpg'); /* Replace with your restaurant photo filename */
+  top: 15%;
+  left: 5%;
+}
+
+.layer3 {
+  background-image: url('R1_2025.jpg'); /* Replace with your Bogota photo filename */
+  top: 25%;
+  right: 8%;
+}
+
+.layer4 {
+  background-image: url('19B_2025.jpg'); /* Replace with your Bogota photo filename */
+  top: 35%;
+  left: 8%;
 }
 
 
-/* Style the footer */
+
+/* Article content */
+.article-content {
+  position: relative;
+  z-index: 1;
+  color: #721d1d;
+}
+
+.article-content h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.article-content p {
+  line-height: 1.8;
+  margin-bottom: 15px;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.article-content p:nth-child(2) { animation-delay: 0.1s; }
+.article-content p:nth-child(3) { animation-delay: 0.15s; }
+.article-content p:nth-child(4) { animation-delay: 0.2s; }
+.article-content p:nth-child(5) { animation-delay: 0.25s; }
+.article-content p:nth-child(5) { animation-delay: 0.3s; }
+.article-content p:nth-child(5) { animation-delay: 0.35s; }
+.article-content p:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Footer */
 footer {
-  background-color: #35836d;
+  background: linear-gradient(135deg, #35836d 0%, #2a6857 100%);
   padding: 50px;
   text-align: center;
-  color: black;
+  color: #721d1d;
+  font-size: 1.5em;
 }
 
-/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
-@media (max-width: 600px) {
-  nav, article {
+footer p {
+  font-size: 150%;
+  transition: opacity 0.6s ease;
+  cursor: pointer;
+}
+
+footer .morse-text {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  transition: opacity 0.6s ease;
+}
+
+footer .decoded-text {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+footer:hover .morse-text {
+  opacity: 0;
+}
+
+footer:hover .decoded-text {
+  opacity: 1;
+}
+
+footer.revealed .morse-text {
+  opacity: 0;
+}
+
+footer.revealed .decoded-text {
+  opacity: 1;
+}
+
+/* Responsive design */
+@media (max-width: 900px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+  
+  nav {
     width: 100%;
+    position: relative;
     height: auto;
+    max-height: none;
+  }
+  
+  article {
+    width: 100%;
+  }
+  
+  header h2 {
+    font-size: 120%;
+  }
+  
+  .article-content h1 {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 20px;
+    font-size: 24px;
+  }
+  
+  nav, article {
+    padding: 15px;
+  }
+  
+  .article-content h1 {
+    font-size: 1.3em;
+  }
+  
+  footer {
+    padding: 30px 15px;
+    font-size: 1em;
+  }
+  
+  footer p {
+    font-size: 120%;
   }
 }
 </style>
 </head>
 <body>
 
-
-
 <header>
-  <span style="font-size:150%; color: #a4b19c"><h2>HAPPY CHRISTMAS 2024!</h2><a>
+  <h2>Feliz Navidad 2025!</h2>
 </header>
 
-<section>
+<div class="content-wrapper">
   <nav>
     <ul>
-<h1>Play the 2024 Christmas album!</h1>
+      <h1>Play the 2025 Christmas album!</h1>
 
-<img src="output.gif" alt="Chirstmas CD cover art" width="300" height="270">
+      <img src="Chr25_Cover.jpg" alt="Christmas CD cover art">
 
-<audio controls="controls">
-    <source src="https://ucdavis.box.com/shared/static/2cfexaio8rtjdvp3s0v6evxf2j0fu8ns.mp3">
-Your browser does not support the audio element.
+      <audio controls>
+        <source src="https://ucdavis.box.com/shared/static/ii6gpesrgafeo8aagwdel4cp6ghm6w0c.mp3">
+        Your browser does not support the audio element.
+      </audio>
 
-</audio>
+      <p style="color: white; font-size: 0.9em;">
+        Experiencing problems streaming? Right-click the bar above to save the mp3 to your device and you can listen to it whenever you like with or without internet!
+      </p>
 
+      <p><a href="Christmas2025_Tracks.xls" style="color:#35836d; font-weight: bold;">Download Song Information</a></p>
 
-<p></p>
+      <hr style="border: 1px solid rgba(255,255,255,0.3); margin: 20px 0;">
 
-<a > <span style="color: white"> Experiencing problems streaming? Right-click the bar above to save the mp3 to your deivce and you can listen to it whenever you like with or without internet! </a> <!-- link to site -->
-<p></p>
+      <a href="photoalbum2025.html">
+        <img src="20_2025.jpg" alt="2025 Photos">
+      </a>
+      
+      <li><a href="photoalbum2025.html" style="color:#35836d; font-weight: bold; font-size: 1.1em;">View Photos</a></li>
 
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<a href="Christmas2024_Tracks.xls"style="color:#1f5d04">Download Song Information </a>
+      <p style="color: white; font-size: 0.9em;">
+        Photo Hints: Swiping on a phone/pad should work. Buttons on the edges and numbers at the bottom of photos will also allow you to advance.
+      </p>
 
-</a>
-<p></p>
+      <hr style="border: 1px solid rgba(255,255,255,0.3); margin: 20px 0;">
 
-   
-<p></p>
+      <a href="ChristmasArchive2019.html">
+        <img src="Ghost3.gif" alt="Christmas Archive">
+      </a>
 
-<p></p>
-
-
-<p></p>
-
-<a href="photoalbum2024.html"> <img src="2024n.jpg" width="270" height="270">
-<p></p>
-<li> <a href="photoalbum2024.html"style="color:#1f5d04">View Photos </a>
-
-
-</a></p>
-<a > <span style="color: white"> Photo Hints: Hover your mouse over the text for easier reading. Change photos by clicking the arrows in the photo or the orange buttons below. </a> 
-<p></p>
-<p></p>
-<p></p>
-
-<a href="ChristmasArchive2019.html"> <img src="Ghost3.gif" width="270" height="270">
-<p></p>
-
-<li><a href="ChristmasArchive2019.html"style="color:#1f5d04">The ghost of Christmas past (Previous Christmas albums and other fun<li>
-
-</a>
-
-
-
+      <li><a href="ChristmasArchive2019.html" style="color:#35836d; font-weight: bold; font-size: 1.1em;">The ghost of Christmas past (Previous Christmas albums and other fun)</a></li>
     </ul>
   </nav>
   
   <article>
-  <a > <span style="color: #1f5d04"> <h1>Dear Friends and Family,</h1>
-<p>Well, here we are again.  This time bidding a fond farewell to 2024.  It always feels like a bit of a mad rush to get all our holiday activities completed, but looking back we have no regrets.  It is a great opportunity to check in with you all and to reflect a bit.    
-<p>   
- <p> 
-<p>As with all years, this one is filled with some good and some less than good. Let’s get the latter out of the way first. One bummer is that Rachel’s laboratory is closing down in December and that means she won’t have a job come January.  She certainly feels lucky to have spent most of her adult life working on her favorite biological organism (are there other kinds?), but there are few people working on Tetrahymena and so chances of landing another position studying that organism are slim.  She is on the lookout for the next chapter of her career.  If you know of something that is a good fit, please let her know.  Brad made a career change from experimental plant biologist to bionformatics programmer some years ago.  It can be done, but it is not without its challenges.  Speaking of Brad, in the negative category of the ledger this year has been his health.  A myriad of small and unsolved issues have cropped up this year.  Nothing life threatening, but there have been prolonged periods of feeling very tired and not quite right, and then spending a lot of time in and out of doctors’ offices, getting probed, tested, scanned, x-rayed and having fluids removed.  It’s dragged him down a bit and we are hoping things improve in 2025.  The last bit of negativity we will share is that our cat Gabriela passed away this year.  She was old and went peacefully.  She was a wonderful companion.  We got her in our early days in Austria, and she made every place we lived feel like home whether in Europe, Chile or California.  
-
-<p>  
- <p> 
-<p>Now, on to the positive things.  After some months of an empty house, we did get a new cat.  Our friends KC and Ted told us of this sweet cat named Sam that was abandoned by the railroad tracks.  We brought him home, got rid of his fleas and within 48 hours he was sleeping in our bed and making himself right at home.  He’s great.  We aren’t used to such a young cat (he’s about 3).  He has more energy and enjoys biting us a lot more than our previous cats did but his quirks just make us like him more.  Welcome to the family Sammy!  
-  <p>
- <p> 
-<p>This past year found us driving up to Seattle (about 12 hours) twice as we had our friend Mark refurbish the kitchen and bathroom in our condo up there.  To save money we did the painting.  It was a lot of work.  We hoped to sell the condo, but the market is flat, so we will likely rent it again in 2025.  Many thanks to our Seattle friends Micah, Patty, Sonja and Boaz for giving us a place to stay.  We regret that we didn’t have time to socialize with all of our Seattle friends.  Hopefully we can be back up there for more fun in the near future!  We also found time for two camping trips.  One at Lower Bear River Reservoir with our whole gang of friends.  Many thanks to David and Alice for organizing and for quickly finding an alternative as our usual place was closed due to fire.  We had another camping trip with our friends Jessica and Janis and Janis’s sisters who were visiting them.  Also a super fun time!  We also got a chance to visit our friends Mike and Heather in Santa Cruz.  Our big trip of the year, however, was two weeks in Colombia, visiting our friends Erich and Carolina, whom we’ve known since our time in Vienna. It was our 25th wedding anniversary this year (burying the lead?), and this trip was part of our celebration.  We had a lot of adventures in and around Bogota, and a truly great side trip to the Amazon. We could talk for hours about it, but to save space, have a look at some of the photos by following the link on the left.  Thanks to them for being such wonderful and generous hosts!  We also loved finally meeting and spending time with their adorable daughter, Sophia.  <p>  
- <p> 
-<p>Rachel has remained very active in the theater. This year she volunteered over 200 hours at the Woodland Opera House (she won an award at their annual awards ceremony).  She also acted in two ten minute plays as well as a production of “12 Angry Jurors” with the Winters theatre company. On the home front, in addition to baking and gardening, Rachel has also enjoyed making her own Kombucha.  Last year Brad got her a kit to make it, and she has excelled at brewing some fine quality “booch” (Brad is disturbed by this nomenclature).  The scobie has taken over a corner of the bar but as long as it doesn’t team up with the sourdough starter I think we’re safe. <p>  
- <p> 
-<p>Last year a keen reader noted that most of the Christmas letter had to do with what Rachel was doing and not much that Brad was doing.  It is indeed difficult to stretch the statement “sat in an empty room staring at the wall” into a full paragraph...but this year is different.  Brad got back into distillation, and we had a fun gin distillation party (not counting the headache the next day).  Also, the trip to Colombia re-ignited his interest in roasting coffee (the coffee there was other-worldly).  He’s been roasting away and recently we had a coffee roasting brunch party that was loads of fun.  What else?  Well, this is a bit meta, but the Christmas website is something he really likes doing, even if it is always a bit of work to get it out on time.  Brad also continues to volunteer his time and genetics/computer programming expertise to assist on projects he helped develop while working at the UN.  This has resulted in 7 research publications this year, which is fairly productive for evening and weekend work.  This is good not only from the standpoint of helping address crop productivity in developing nations, but to keep his academic credentials up to date (his current job is not an academic one, and so there are few opportunities to lead research, publish or teach).  Speaking of teaching, Brad had the chance to fill-in for his colleague (and UC Davis professor) Luca and teach a few sections of an undergraduate genetics class.  He forgot how much he misses teaching and how rewarding (and how much work) it can be.  <p>
- <p> 
- <p>What else has been going on?  We’ve been paddle boarding a lot.  It is great fun.  For Brad’s birthday we had a wonderful long weekend that included time on the nearby Clear Lake, and a train ride to Oakland to see the A’s play their final season in the Colosseum (they move, temporarily, to Sacramento in 2025).  For Rachel’s birthday we went to San Francisco to the art museum and aquarium.  Thanks to her sister Jenny for driving! We also kept quite busy going to the theater and concerts. Concerts included Willie Nelson, Bob Dylan and John Cougar with our friends Eve, Dennis, Jessica and Janis, Anders Osborne (a favorite of Brad’s) and Tab Benoit with Eve and Dennis, Lucinda Williams with our friend KC, and most recently the Jazz at Lincoln Center holiday show (also modern dance, Branford Marsalis, and many more).  Theater included Sunset Boulevard, a professional production by Broadway Sacramento, along with many community theater shows in Woodland, Davis, and Winters.  Last, but not least, it was great to re-connect with our friend John Davenport, who we used to hang out with when we lived in Oregon (in the 1990s!).    <p> 
- <p> 
- <p>Well, we started this letter with some negatives, but it is clear that we have been blessed with good friends and lots of fun. It’s easy to focus on the negative, and we hope to remember to be more grateful in 2025!  We hope all of you have a year filled with peace, prosperity, and happiness! <p> 
- 
- <p>    Brad & Rachel  <p> <a>
-  <p>
-  </p>
-   <p>
-  <p>
-   <p>
-  <p>
-
+    <div class="parallax-bg">
+      <div class="parallax-layer layer1"></div>
+      <div class="parallax-layer layer2"></div>
+      <div class="parallax-layer layer3"></div>
+      <div class="parallax-layer layer4"></div>
   
+    
+    </div>
+    
+    <div class="article-content">
+      <h1>Dear Friends and Family,</h1>
+      
+      <p>Every year we feel like 12 months have gone by in a flash. This year is no different. Another unfortunate consistency is that every year we wish we could fill our letter with only happy news. </p>
+      
+      <p>This year was a bit of a tough one.  In March, shortly after Rachel’s birthday, her sister Rebecca passed away. It was sudden, unexpected, and a real shock. Rebecca would frequently visit us from Nevada. She filled the room with an artistic creativity that we miss.  In May, Rachel’s mother Mary passed away. We are so grateful to live only 5 minutes from where she lived. We grieve for them both and celebrate the many years of great times we had with them. </p>
+      
+      <p>Looking back on 2025, it was filled with a lot of friends and a lot of good times. We are truly lucky. We finished 2024 visiting friends in San Diego.  It put us in the Christmas spirit (we did watch “Hot Frosty”, and we are still recovering!).  We had a nice trip to Seattle in February to finish the upgrade to our condo there.  We wanted to sell it, but the market did not oblige, so we are renting it again.  In April we joined Irvin and Jessica’s trip to Ireland.  They had been planning it for a while and we kind of invited ourselves to the first half of it.  We’d like to think we were sort of a “lucky charm” for them.  We all had a blast in Dublin and Killarney. We’d never been to Ireland before, but we will certainly go back.  The music, scenery, and amazingly friendly Irish people combined to make a really lovely stay there.</p>
+      
+      <p>Shorty after we returned from Ireland, Rachel was in the play “Almost Maine” in Winters, California. After this she got the role of “Old Shady” in “Men on Boats”, a play about exploring the Grand Canyon. She was great in this role!  She played a taciturn Civil War veteran who was handy with a knife and a little too fond of the contents of his flask.  Brad got some chain mail pajamas from Amazon.  She is a method actor.   
+</p>
+      
+      <p>This year we went to a lot of baseball games, concerts, and theater.  It is almost too much to recount. We saw several A’s games at their temporary home in Sutter Park in Sacramento and went into San Francisco twice to see the Giants. Oracle park is a great place to see baseball and we look forward to going to more games next season.  One especially memorable concert was traditional Hawaiian music by Raiatea Helm. 
+</p>
+      
+      <p>We also did a lot of paddle boarding and camping.  We are happy that our friends Eve and Dennis also like to paddle board.  We took our boards camping to Trinity Lake in the spring (thanks to Jessica and Janis for organizing), and Brad was on the water and camping at “Hell Hole” with the whole camping gang (thanks to Alice and David for organizing).  Rachel couldn’t make that one, but she did join later in the year for another highlight: a week in Yosemite National Park.  Thanks to Micah, Patty, Joan and Jacob for their efforts in making it a truly memorable trip.  We’d never been there before and we now know why everyone raves about it.  It was awe-inspiring.  That wasn’t the only national park we made it to this year.  We rode with Rachel’s sister Shelly and her husband Tom up to Oregon for Mary’s funeral.  On the way, we stopped at Crater Lake National Park.  It had been years since we had been there (Rachel was once a park ranger there). It was lovely and brought back a lot of fond memories of living in Oregon. 
+</p>
+      
+      <p>What else is going on?  Rachel is still looking for full time employment (but keeping busy with a few part-time science gigs).  Much like last year, Brad has been in and out of doctor’s offices. He is doing okay but there are aches, pains and other things that nobody seems to be able to figure out, so he bounces from one specialist to another. It is a bit tiring, but at least we live in a small town and he doesn’t have to go far to be told he needs to see yet another doctor.  On a more positive side, Brad has been having fun with a variety of hobbies. He has been roasting coffee regularly, making fermented prickly pear juice, curing olives, expanding his record collection, making gin and has plans for a million other hobbies.  Too bad early retirement is not in the cards!  Rachel is also keeping busy.  In addition to acting, she has been baking excellent sourdough, making kombucha, working on a kitchen remodel, and studying to become a Pilates instructor.  </p>
+      
+      <p>We hope that everyone has had the opportunity to find a little kindness and joy in 2025. And we hope there is much more in store for you in 2026!</p>
+      
+      <p style="margin-top: 30px; font-weight: bold; font-size: 1.2em;">Brad & Rachel</p>
+    </div>
   </article>
-</section>
+</div>
+
 <footer>
-
-  <span style="font-size:200%; color: #a4b19c"><p>NOT FOR OURSELVES ALONE ARE WE BORN</p><a>
-
+  <p style="position: relative; min-height: 60px;">
+    <span class="morse-text">🅗🅐🅟🅟🅨 🅝🅔🅦 🅨🅔🅐🅡</span> 
+    <span class="decoded-text">With the new day comes new strength and new thoughts</span>
+  </p>
 </footer>
+
+<script>
+// Create falling snowflakes
+function createSnowflakes() {
+  const header = document.querySelector('header');
+  const snowflakeCount = 30;
+  
+  for (let i = 0; i < snowflakeCount; i++) {
+    const snowflake = document.createElement('div');
+    snowflake.classList.add('snowflake');
+    snowflake.innerHTML = '❄';
+    snowflake.style.left = Math.random() * 100 + '%';
+    snowflake.style.animationDuration = (Math.random() * 3 + 5) + 's';
+    snowflake.style.animationDelay = Math.random() * 5 + 's';
+    snowflake.style.fontSize = (Math.random() * 0.5 + 0.5) + 'em';
+    header.appendChild(snowflake);
+  }
+}
+
+// Parallax scrolling effect with fade in/out
+function handleParallax() {
+  const layers = document.querySelectorAll('.parallax-layer');
+  
+  // Define the vertical positions where each layer should be at peak visibility (as percentage)
+  const layerPositions = [5, 15, 25, 35 ]; // corresponds to layer1, layer2, layer3
+  
+  function updateParallax() {
+    // Use window scroll for the main page scroll
+    const scrolled = window.pageYOffset || document.documentElement.scrollTop;
+    const pageHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = pageHeight > 0 ? (scrolled / pageHeight) * 100 : 0;
+    
+    layers.forEach((layer, index) => {
+      // Parallax movement
+      const speed = (index + 1) * 0.25;
+      layer.style.transform = `translateY(${scrolled * speed}px)`;
+      
+      // Calculate fade based on scroll percentage
+      const layerPeakPosition = layerPositions[index];
+      const distanceFromPeak = Math.abs(scrollPercent - layerPeakPosition);
+      const fadeRange = 20; // Percentage range over which fade occurs (adjust this value)
+      
+      // Calculate opacity (0.2 at peak, fades to 0)
+      let opacity = Math.max(0, 1.0 * (1 - (distanceFromPeak / fadeRange)));
+      layer.style.opacity = opacity;
+    });
+  }
+  
+  // Listen to window scroll instead
+  window.addEventListener('scroll', updateParallax);
+  
+  // Initial call
+  updateParallax();
+}
+
+// Initialize animations
+document.addEventListener('DOMContentLoaded', () => {
+  createSnowflakes();
+  handleParallax();
+  handleFooterReveal();
+  handleHeaderColorTransition();
+});
+
+// Animate header color transition on scroll
+function handleHeaderColorTransition() {
+  const header = document.querySelector('header');
+  
+  function updateHeaderColor() {
+    const scrolled = window.pageYOffset || document.documentElement.scrollTop;
+    const pageHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = pageHeight > 0 ? (scrolled / pageHeight) * 100 : 0;
+    
+    // Start with solid green, transition to sage from left to right
+    // At 0% scroll: solid #35836d
+    // At 100% scroll: solid #a4b19c
+    if (scrollPercent === 0) {
+      header.style.background = '#35836d';
+    } else {
+      header.style.background = `linear-gradient(90deg, #a4b19c ${scrollPercent}%, #35836d ${scrollPercent}%)`;
+    }
+  }
+  
+  window.addEventListener('scroll', updateHeaderColor);
+  updateHeaderColor(); // Initial call
+}
+
+// Reveal footer text when scrolling to bottom
+function handleFooterReveal() {
+  const footer = document.querySelector('footer');
+  
+  function checkFooterVisible() {
+    const footerTop = footer.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+    
+    // If footer is visible in viewport, reveal the decoded text
+    if (footerTop < windowHeight * 0.8) {
+      footer.classList.add('revealed');
+    }
+  }
+  
+  window.addEventListener('scroll', checkFooterVisible);
+  checkFooterVisible(); // Check on page load
+}
+</script>
+
 </body>
 </html>
